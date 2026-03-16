@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@theme {
+  --color-upwork-green: #14a800;
+  --color-upwork-light: #1dbd00;
+  --color-bg-primary: #020617;
+  --color-bg-secondary: #0a1628;
+  
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-poppins), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  --animation-fade-up: fadeUp 0.7s ease-out forwards;
+  --animation-float: float 6s ease-in-out infinite;
+  --animation-glow-pulse: glowPulse 2s ease-in-out infinite;
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(20, 168, 0, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(20, 168, 0, 0.7); }
+  }
+}
+
+/* ─── Custom Variables ─────────────────────────────────────── */
+:root {
+  --upwork-green: #14a800;
+  --upwork-light: #1dbd00;
+  --bg-primary: #020617;
+  --bg-secondary: #0a1628;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --text-primary: #f0f4ff;
+  --text-secondary: #8b9eb7;
+  --text-muted: #4d6280;
+  --glow-green: rgba(20, 168, 0, 0.5);
+}
+
+/* ─── Base Reset ────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Custom Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--upwork-green); border-radius: 10px; }
+
+/* ─── Tube / Neon Text (Hero) ───────────────────────────────── */
+.tube-text {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.tube-off { color: rgba(255, 255, 255, 0.07); text-shadow: none; }
+
+.tube-on {
+  color: #ffffff;
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.9),
+    0 0 16px rgba(255, 255, 255, 0.6),
+    0 0 35px rgba(255, 255, 255, 0.3);
+  animation: flicker 0.15s infinite alternate;
+}
+
+.stable .tube-on { animation: none; }
+
+@keyframes flicker {
+  from { opacity: 0.6; }
+  to   { opacity: 1; }
+}
+
+/* ─── Fade Transitions ──────────────────────────────────────── */
+.sub-hidden  { opacity: 0; filter: blur(8px); transform: translateY(10px); }
+.sub-visible { opacity: 1; filter: blur(0); transform: translateY(0); transition: all 0.9s ease; }
+
+.button-hidden  { opacity: 0; transform: translateY(14px); }
+.button-visible { opacity: 1; transform: translateY(0); transition: all 0.7s ease 0.4s; }
+
+/* ─── Glass Card ────────────────────────────────────────────── */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+.btn-upwork {
+  background: linear-gradient(135deg, var(--upwork-green), #0d7a00);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.85rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(20, 168, 0, 0.35);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-upwork:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(20, 168, 0, 0.55);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.85rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  border-color: var(--upwork-green);
+  color: var(--upwork-green);
+  background: rgba(20, 168, 0, 0.05);
+}
+
+/* ─── Section Title Underline ───────────────────────────────── */
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--upwork-green), transparent);
+  border-radius: 2px;
+}
+
+/* ─── Timeline ──────────────────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--upwork-green), transparent);
+}
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--upwork-green);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(20, 168, 0, 0.7);
+}
+
+/* ─── Tech Badge ────────────────────────────────────────────── */
+.tech-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--upwork-green);
+  background: rgba(20, 168, 0, 0.1);
+  border: 1px solid rgba(20, 168, 0, 0.25);
+  border-radius: 4px;
+  padding: 2px 8px;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Section Gradients (reusable) ─────────────────────────── */
+.section-gradient-1 { background: linear-gradient(180deg, #020617 0%, #060f20 100%); }
+.section-gradient-2 { background: linear-gradient(180deg, #060f20 0%, #020617 100%); }
+.section-gradient-3 { background: linear-gradient(180deg, #020617 0%, #050d1a 100%); }
