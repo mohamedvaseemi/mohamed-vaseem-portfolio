@@ -2,10 +2,18 @@
 import { useRef, useEffect, useState } from "react";
 import { experiences as staticExperiences } from "../../data/portfolio";
 
+interface ExperienceRecord {
+  role?: string;
+  company?: string;
+  duration?: string;
+  description?: string;
+  highlights?: string[];
+}
+
 export default function ExperienceSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const [experiences, setExperiences] = useState<any[]>(staticExperiences);
+  const [experiences, setExperiences] = useState<ExperienceRecord[]>(staticExperiences);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -39,7 +47,7 @@ export default function ExperienceSection() {
     <section id="experience" ref={ref} className="section-gradient-2 py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <p className="text-[#14a800] text-sm font-semibold uppercase tracking-widest mb-3">
-          Where I've Worked
+          Where I&apos;ve Worked
         </p>
         <h2
           className={`section-title text-3xl md:text-4xl font-bold text-white mb-16 transition-all duration-700 ${
@@ -58,7 +66,7 @@ export default function ExperienceSection() {
             {loading ? (
                <p className="text-[#8b9eb7] animate-pulse">Loading professional history...</p>
             ) : (
-                experiences.map((exp: any, i: number) => (
+                experiences.map((exp: ExperienceRecord, i: number) => (
                   <div
                     key={i}
                     className={`relative transition-all duration-700 ${

@@ -47,7 +47,7 @@ export default function AddProjectPage() {
 
       // ✅ AUTH OK
       setPageLoading(false);
-    } catch (error) {
+    } catch {
       // ❌ DECODE FAILED
       router.replace("/authorisedSection/login");
     }
@@ -104,8 +104,8 @@ export default function AddProjectPage() {
         project_url: "",
         image: "",
       });
-    } catch (error: any) {
-      showPopup(`Error founded : ${error.message}`);
+    } catch (error: unknown) {
+      showPopup(`Error founded : ${(error as Error).message}`);
     } finally {
       setLoading(false);
     }

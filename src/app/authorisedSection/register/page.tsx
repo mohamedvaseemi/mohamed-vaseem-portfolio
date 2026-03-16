@@ -101,9 +101,9 @@ export default function RegisterPage() {
         showPopup(`Registration failed : ${response.message}`);
         setMessage(response.message || "Registration failed!");
       }
-    } catch (error: any) {
-      showPopup(`Registration failed : ${error.response?.data?.message || error.message}`);
-      setMessage(error.response?.data?.message || "Something went wrong!");
+    } catch (error: unknown) {
+      showPopup(`Registration failed : ${(error as Error).message}`);
+      setMessage("Something went wrong!");
     } finally {
       setLoading(false);
     }

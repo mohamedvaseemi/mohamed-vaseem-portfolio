@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import HTTPWrapper from "../../utils/HTTPWrapper";
 import Popup from "../components/Popup";
 
@@ -46,20 +46,20 @@ export default function ProjectsPage() {
   // ---------------------------
   // GET
   // ---------------------------
-  const fetchProjects = async () => {
+  const fetchProjects = useCallback(async () => {
     try {
       const res = await HTTPWrapper.get("/project/get-project");
       if (res?.status) {
         setProjects(res.data || []);
       }
-    } catch (err: any) {
-      showPopup(`GET projects failed : ${err.message}`);
+    } catch (err: unknown) {
+      showPopup(`GET projects failed : ${(err as Error).message}`);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchProjects();
-  }, []);
+  }, [fetchProjects]);
 
   // ---------------------------
   // CREATE
@@ -80,8 +80,8 @@ export default function ProjectsPage() {
         fetchProjects();
         resetForm();
       }
-    } catch (err: any) {
-      showPopup(`Create failed : ${err.message}`);
+    } catch (err: unknown) {
+      showPopup(`Create failed : ${(err as Error).message}`);
     }
   };
 
@@ -108,8 +108,8 @@ export default function ProjectsPage() {
         fetchProjects();
         resetForm();
       }
-    } catch (err: any) {
-      showPopup(`Update failed : ${err.message}`);
+    } catch (err: unknown) {
+      showPopup(`Update failed : ${(err as Error).message}`);
     }
   };
 
@@ -123,8 +123,8 @@ export default function ProjectsPage() {
         showPopup("Project deleted successfully!");
         fetchProjects();
       }
-    } catch (err: any) {
-      showPopup(`Failed to delete project : ${err.message}`);
+    } catch (err: unknown) {
+      showPopup(`Failed to delete project : ${(err as Error).message}`);
     }
   };
 
@@ -235,6 +235,7 @@ export default function ProjectsPage() {
             <div className="flex items-center space-x-4">
               <img
                 src={p.image}
+                alt={p.title || "Project preview"}
                 className="w-20 h-20 object-cover rounded"
               />
               <div>

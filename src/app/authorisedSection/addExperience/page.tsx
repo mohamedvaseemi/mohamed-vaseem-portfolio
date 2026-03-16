@@ -48,7 +48,7 @@ export default function ExperiencePage() {
 
       // ✅ AUTH OK
       setPageLoading(false);
-    } catch (error) {
+    } catch {
       // ❌ DECODE FAILED
       router.replace("/authorisedSection/login");
     }
@@ -82,8 +82,8 @@ export default function ExperiencePage() {
         duration: "",
         description: "",
       });
-    } catch (err: any) {
-      showPopup(`Error founded : ${err.message}`);
+    } catch (err: unknown) {
+      showPopup(`Error founded : ${(err as Error).message}`);
     } finally {
       setLoading(false);
     }

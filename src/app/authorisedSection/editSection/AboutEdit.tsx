@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, FormEvent } from "react";
+import { useEffect, useState, FormEvent, useCallback } from "react";
 import HTTPWrapper from "../../utils/HTTPWrapper";
 import Popup from "../components/Popup";
 
@@ -30,7 +30,7 @@ export default function AboutPage() {
   // ------------------------------------------------------
   // 1️⃣ GET - Fetch About Details
   // ------------------------------------------------------
-  const fetchAbout = async () => {
+  const fetchAbout = useCallback(async () => {
     try {
       const res = await HTTPWrapper.get("/about/get-about");
       if (res?.status) {
@@ -39,17 +39,17 @@ export default function AboutPage() {
       } else {
         setAbout(null);
       }
-    } catch (error: any) {
-      showPopup(`Error founded : ${error.message}`);
+    } catch (error: unknown) {
+      showPopup(`Error founded : ${(error as Error).message}`);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
 
   useEffect(() => {
     fetchAbout();
-  }, []);
+  }, [fetchAbout]);
 
   // ------------------------------------------------------
   // 2️⃣ DELETE - Delete About Details
@@ -66,7 +66,7 @@ export default function AboutPage() {
         showPopup("About details deleted!");
         setAbout(null);
       }
-    } catch (err) {
+    } catch {
       showPopup("Failed to delete.");
     } finally {
       setDeleting(false);
@@ -99,8 +99,8 @@ export default function AboutPage() {
         setEditMode(false);
         fetchAbout();
       }
-    } catch (err: any) {
-      showPopup(`Error founded : ${err.message}`);
+    } catch (err: unknown) {
+      showPopup(`Error founded : ${(err as Error).message}`);
     } finally {
       setUpdating(false);
     }

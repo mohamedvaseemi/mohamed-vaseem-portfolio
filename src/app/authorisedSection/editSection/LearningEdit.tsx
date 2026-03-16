@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import HTTPWrapper from "@/app/utils/HTTPWrapper";
 import Popup from "@/app/authorisedSection/components/Popup";
 
@@ -40,20 +40,20 @@ const LearningsPage: React.FC = () => {
     // --------------------------
     // GET Learnings API
     // --------------------------
-    const fetchLearnings = async () => {
+    const fetchLearnings = useCallback(async () => {
         try {
             const res = await HTTPWrapper.get("/learning/get-learning");
             if (res?.status) {
                 setLearnings(res.data || []);
             }
-        } catch (error: any) {
-            showPopup(`GET learnings failed : ${error.message}`);
+        } catch (error: unknown) {
+            showPopup(`GET learnings failed : ${(error as Error).message}`);
         }
-    };
+    }, []);
 
     useEffect(() => {
         fetchLearnings();
-    }, []);
+    }, [fetchLearnings]);
 
     // --------------------------
     // CREATE
@@ -72,8 +72,8 @@ const LearningsPage: React.FC = () => {
                 fetchLearnings();
                 resetForm();
             }
-        } catch (error: any) {
-            showPopup(`Create failed : ${error.message}`);
+        } catch (error: unknown) {
+            showPopup(`Create failed : ${(error as Error).message}`);
         }
     };
 
@@ -95,8 +95,8 @@ const LearningsPage: React.FC = () => {
                 fetchLearnings();
                 resetForm();
             }
-        } catch (error: any) {
-            showPopup(`Update failed : ${error.message}`);
+        } catch (error: unknown) {
+            showPopup(`Update failed : ${(error as Error).message}`);
         }
     };
 
@@ -110,8 +110,8 @@ const LearningsPage: React.FC = () => {
                 showPopup("✅ Learning deleted successfully!");
                 fetchLearnings();
             }
-        } catch (error: any) {
-            showPopup(`Failed to delete learning : ${error.message}`);
+        } catch (error: unknown) {
+            showPopup(`Failed to delete learning : ${(error as Error).message}`);
         }
     };
 
@@ -159,7 +159,7 @@ const LearningsPage: React.FC = () => {
                     {base64Logo || currentItem.logo ? (
                         <img
                             src={base64Logo || currentItem.logo}
-                            alt="preview"
+                            alt="Learning technology logo preview"
                             className="w-32 h-32 object-cover rounded border"
                         />
                     ) : null}
@@ -202,7 +202,7 @@ const LearningsPage: React.FC = () => {
                         <div className="flex items-center space-x-4">
                             <img
                                 src={item.logo}
-                                alt="logo"
+                                alt={`${item.name} logo`}
                                 className="w-16 h-16 object-cover rounded"
                             />
                             <p className="text-lg font-medium">{item.name}</p>

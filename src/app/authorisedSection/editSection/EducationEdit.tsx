@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import HTTPWrapper from "@/app/utils/HTTPWrapper";
 import Popup from "@/app/authorisedSection/components/Popup";
 
@@ -25,21 +25,21 @@ export default function EducationPage() {
   // --------------------------------------------
   // GET EDUCATION DATA
   // --------------------------------------------
-  const fetchEducation = async () => {
+  const fetchEducation = useCallback(async () => {
     setLoading(true);
     try {
       const res = await HTTPWrapper.get("/education/get-education");
       setData(res?.data || []);
-    } catch (err: any) {
+    } catch {
       showPopup("Failed to load education data.");
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchEducation();
-  }, []);
+  }, [fetchEducation]);
 
   // ------------------------------------------------
   // DELETE EDUCATION

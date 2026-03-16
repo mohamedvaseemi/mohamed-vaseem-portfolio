@@ -57,7 +57,7 @@ export default function AddEducationPage() {
 
       // ✅ AUTH OK
       setPageLoading(false);
-    } catch (error) {
+    } catch {
       // ❌ DECODE FAILED
       router.replace("/authorisedSection/login");
     }
@@ -79,8 +79,8 @@ export default function AddEducationPage() {
       } else {
         setMessage("❌ Failed to add education details.");
       }
-    } catch (err: any) {
-      showPopup(`Error founded : ${err.message}`);
+    } catch (err: unknown) {
+      showPopup(`Error founded : ${(err as Error).message}`);
       setMessage("⚠️ Error occurred while submitting the form.");
     } finally {
       setLoading(false);

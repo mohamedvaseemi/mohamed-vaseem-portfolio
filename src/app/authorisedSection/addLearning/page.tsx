@@ -53,7 +53,7 @@ export default function AddLearningPage() {
 
       // ✅ AUTH OK
       setPageLoading(false);
-    } catch (error) {
+    } catch {
       // ❌ DECODE FAILED
       router.replace("/authorisedSection/login");
     }
@@ -97,9 +97,9 @@ export default function AddLearningPage() {
       setPopup("✅ Learning added successfully!");
       setMessage("✅ Learning added successfully!");
       setFormData({ name: "", logo: "" });
-    } catch (error: any) {
-      showPopup(`Error founded : ${error.message}`);
-      setMessage(error.response?.data?.message || "❌ Failed to add learning.");
+    } catch (error: unknown) {
+      showPopup(`Error founded : ${(error as Error).message}`);
+      setMessage("❌ Failed to add learning.");
     } finally {
       setLoading(false);
     }

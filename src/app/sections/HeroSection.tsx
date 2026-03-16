@@ -11,19 +11,18 @@ export default function HeroSection() {
 
   useEffect(() => {
     setMounted(true);
-    let flickerInterval: ReturnType<typeof setInterval>;
-    const stableTimeout = setTimeout(() => {
-      clearInterval(flickerInterval);
-      setStable(true);
-    }, 2400);
-
-    flickerInterval = setInterval(() => {
+    const flickerInterval = setInterval(() => {
       const count = Math.floor(Math.random() * 5) + 1; // Flicker 1-5 random letters at a time
       const indexes = Array.from({ length: count }, () =>
         Math.floor(Math.random() * TITLE_TEXT.length)
       );
       setLitIndexes(indexes);
     }, 150);
+
+    const stableTimeout = setTimeout(() => {
+      clearInterval(flickerInterval);
+      setStable(true);
+    }, 2400);
 
     return () => {
       clearInterval(flickerInterval);

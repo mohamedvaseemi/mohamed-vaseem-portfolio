@@ -4,6 +4,13 @@ import Image from "next/image";
 import { skills as staticSkills } from "../../data/portfolio";
 import { getTechIcon } from "../utils/techIcons";
 
+interface SkillRecord {
+  name: string;
+  logo?: string;
+  icon?: string;
+  category?: string;
+}
+
 type Category = "All" | "Frontend" | "Backend" | "Tools";
 const categories: Category[] = ["All", "Frontend", "Backend", "Tools"];
 
@@ -11,7 +18,7 @@ export default function SkillsSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [active, setActive] = useState<Category>("All");
-  const [skills, setSkills] = useState<any[]>(staticSkills);
+  const [skills, setSkills] = useState<SkillRecord[]>(staticSkills);
   const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({});
   const [loading, setLoading] = useState(false);
 
@@ -43,7 +50,7 @@ export default function SkillsSection() {
   }, []);
 
   // Support both logo (new) and icon (old DB field) field names
-  const filtered = active === "All" ? skills : skills.filter((s: any) => s.category === active);
+  const filtered = active === "All" ? skills : skills.filter((s: SkillRecord) => s.category === active);
 
   return (
     <section id="skills" ref={ref} className="section-gradient-1 py-24 px-6">
@@ -81,7 +88,7 @@ export default function SkillsSection() {
           <p className="text-[#8b9eb7] animate-pulse">Loading tech stack...</p>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-            {filtered.map((tech: any, i: number) => {
+            {filtered.map((tech: SkillRecord, i: number) => {
               const Icon = getTechIcon(tech.name);
               const logoUrl = tech.logo || tech.icon || null;
               

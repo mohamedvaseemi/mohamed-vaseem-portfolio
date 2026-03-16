@@ -45,7 +45,9 @@ async function registerDetails(organization: string, email: string, password: st
     return { status: true, token };
 }
 
-export default {
+const authService = {
     loginDetails,
     registerDetails
 };
+
+export default authService;

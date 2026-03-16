@@ -52,7 +52,7 @@ export default function LoginPage() {
     } catch (error: unknown) {
       if (error instanceof Error) {
         showPopup(`Login failed : ${error.message}`);
-        setMessage((error as any).response?.data?.message || "Something went wrong!");
+        setMessage(error.message || "Something went wrong!");
       } else {
         showPopup("Login failed for unknown reason");
         setMessage("Something went wrong!");

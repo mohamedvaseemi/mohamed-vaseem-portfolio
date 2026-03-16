@@ -36,7 +36,7 @@ export default function Dashboard() {
 
       // ✅ AUTH OK
       setPageLoading(false);
-    } catch (error) {
+    } catch {
       // ❌ DECODE FAILED
       router.replace("/authorisedSection/login");
     }

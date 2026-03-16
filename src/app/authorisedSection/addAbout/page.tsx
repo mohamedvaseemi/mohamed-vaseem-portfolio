@@ -47,7 +47,7 @@ export default function AddAboutPage() {
 
       // ✅ AUTH OK
       setPageLoading(false);
-    } catch (error) {
+    } catch {
       // ❌ DECODE FAILED
       router.replace("/authorisedSection/login");
     }
@@ -70,9 +70,9 @@ export default function AddAboutPage() {
       } else {
         setMessage("❌ Failed to add details.");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       setMessage("⚠️ Error occurred while submitting form.");
-      showPopup(`Error founded : ${err.message}`);
+      showPopup(`Error founded : ${(err as Error).message}`);
     } finally {
       setLoading(false);
     }

@@ -2,10 +2,11 @@
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "/api";
 
 type HTTPMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+type RequestBody = unknown;
 
 interface RequestOptions {
   method?: HTTPMethod;
-  body?: any;
+  body?: RequestBody;
   headers?: Record<string, string>;
 }
 
@@ -44,13 +45,13 @@ async function HTTPWrapper(path: string, options: RequestOptions = {}) {
 HTTPWrapper.get = (path: string, headers?: Record<string, string>) =>
   HTTPWrapper(path, { method: "GET", headers });
 
-HTTPWrapper.post = (path: string, body: any, headers?: Record<string, string>) =>
+HTTPWrapper.post = (path: string, body: RequestBody, headers?: Record<string, string>) =>
   HTTPWrapper(path, { method: "POST", body, headers });
 
-HTTPWrapper.put = (path: string, body: any, headers?: Record<string, string>) =>
+HTTPWrapper.put = (path: string, body: RequestBody, headers?: Record<string, string>) =>
   HTTPWrapper(path, { method: "PUT", body, headers });
 
-HTTPWrapper.delete = (path: string, body?: any, headers?: Record<string, string>) =>
+HTTPWrapper.delete = (path: string, body?: RequestBody, headers?: Record<string, string>) =>
   HTTPWrapper(path, { method: "DELETE", body, headers });
 
 export default HTTPWrapper;

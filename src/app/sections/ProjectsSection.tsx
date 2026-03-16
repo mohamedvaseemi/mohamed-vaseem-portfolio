@@ -2,6 +2,18 @@
 import { useRef, useEffect, useState } from "react";
 import { projects as staticProjects } from "../../data/portfolio";
 
+interface ProjectRecord {
+  title?: string;
+  name?: string;
+  desc?: string;
+  description?: string;
+  tech?: string | string[];
+  projectUrl?: string;
+  link?: string;
+  image?: string;
+  category?: string;
+}
+
 type Category = "All" | "Full-Stack" | "Frontend";
 const tabs: Category[] = ["All", "Full-Stack", "Frontend"];
 
@@ -18,7 +30,7 @@ export default function ProjectsSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [activeTab, setActiveTab] = useState<Category>("All");
-  const [projects, setProjects] = useState<any[]>(staticProjects);
+  const [projects, setProjects] = useState<ProjectRecord[]>(staticProjects);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -51,13 +63,13 @@ export default function ProjectsSection() {
   const filtered =
     activeTab === "All"
       ? projects
-      : projects.filter((p: any) => p.category === activeTab);
+      : projects.filter((p: ProjectRecord) => p.category === activeTab);
 
   return (
     <section id="projects" ref={ref} className="section-gradient-3 py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <p className="text-[#14a800] text-sm font-semibold uppercase tracking-widest mb-3">
-          What I've Built
+          What I&apos;ve Built
         </p>
         <h2
           className={`section-title text-3xl md:text-4xl font-bold text-white mb-10 transition-all duration-700 ${
@@ -89,7 +101,7 @@ export default function ProjectsSection() {
           <p className="text-[#8b9eb7] animate-pulse">Loading projects...</p>
         ) : (
           <div className="grid sm:grid-cols-2 gap-6">
-            {filtered.map((proj: any, i: number) => (
+            {filtered.map((proj: ProjectRecord, i: number) => (
               <div
                 key={i}
                 className={`glass-card rounded-2xl overflow-hidden hover:border-[rgba(20,168,0,0.3)] hover:scale-[1.02] transition-all duration-300

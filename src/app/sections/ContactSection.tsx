@@ -26,13 +26,13 @@ export default function ContactSection() {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          Let's Work Together
+          Let&apos;s Work Together
         </h2>
 
         <p className={`text-[#8b9eb7] text-lg max-w-2xl mx-auto mb-12 transition-all duration-700 delay-100 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          Currently accepting new freelance projects. If you have an idea or a project that needs a professional touch, I'd love to hear from you.
+          Currently accepting new freelance projects. If you have an idea or a project that needs a professional touch, I&apos;d love to hear from you.
         </p>
 
         <div className={`grid sm:grid-cols-2 gap-6 transition-all duration-700 delay-200 ${

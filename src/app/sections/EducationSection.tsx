@@ -2,12 +2,23 @@
 import { useRef, useEffect, useState } from "react";
 import { education as staticEducation } from "../../data/portfolio";
 
+interface EducationRecord {
+  degree?: string;
+  title?: string;
+  school?: string;
+  institution?: string;
+  year?: string;
+  duration?: string;
+  desc?: string;
+  description?: string;
+}
+
 const icons = ["🎓", "💻", "📚", "🏫"];
 
 export default function EducationSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const [education, setEducation] = useState<any[]>(staticEducation);
+  const [education, setEducation] = useState<EducationRecord[]>(staticEducation);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -55,7 +66,7 @@ export default function EducationSection() {
           <p className="text-[#8b9eb7] animate-pulse">Loading education details...</p>
         ) : (
           <div className="grid md:grid-cols-2 gap-6">
-            {education.map((edu: any, i: number) => (
+            {education.map((edu: EducationRecord, i: number) => (
               <div
                 key={i}
                 className={`glass-card rounded-2xl p-7 hover:border-[rgba(20,168,0,0.3)] hover:scale-[1.02] transition-all duration-300

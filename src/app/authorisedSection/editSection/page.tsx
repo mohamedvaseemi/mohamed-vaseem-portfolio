@@ -42,7 +42,7 @@ export default function AdminSwitcherPage() {
         router.replace("/authorisedSection/login");
         return;
       }
-    } catch (error) {
+    } catch {
       router.replace("/authorisedSection/login");
     }
   }, [router]);

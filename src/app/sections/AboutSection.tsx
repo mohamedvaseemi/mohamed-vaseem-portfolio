@@ -2,10 +2,16 @@
 import { useRef, useEffect, useState } from "react";
 import { heroData, aboutData as staticAboutData } from "../../data/portfolio";
 
+interface AboutRecord {
+  heading?: string;
+  text?: string;
+  stats?: { label: string; value: string }[];
+}
+
 export default function AboutSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const [aboutData, setAboutData] = useState<any>(null);
+  const [aboutData, setAboutData] = useState<AboutRecord | null>(null);
   const [loading, setLoading] = useState(false); // Default to false if we have static data
 
   useEffect(() => {
@@ -34,8 +40,8 @@ export default function AboutSection() {
 
   // Fallback text if DB is empty
   const heading = aboutData?.heading || staticAboutData.heading;
-  const bioText = aboutData?.text || staticAboutData.bio;
-  const stats: { label: string; value: string }[] = aboutData?.stats || staticAboutData.stats;
+  const bioText = (aboutData?.text || staticAboutData.bio) as string;
+  const stats = aboutData?.stats || staticAboutData.stats;
 
   return (
     <section
@@ -78,7 +84,7 @@ export default function AboutSection() {
               <span className="mt-1 w-2.5 h-2.5 rounded-full bg-[#14a800] animate-pulse flex-shrink-0" />
               <p className="text-sm text-[#8b9eb7]">
                 <span className="text-[#14a800] font-semibold">Available for freelance — </span>
-                I am currently available for new opportunities and freelance contracts. Let's discuss how I can help your business grow.
+                I am currently available for new opportunities and freelance contracts. Let&apos;s discuss how I can help your business grow.
               </p>
             </div>
 

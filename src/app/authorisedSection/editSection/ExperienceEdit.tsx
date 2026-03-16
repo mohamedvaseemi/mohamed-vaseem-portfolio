@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import HTTPWrapper from "@/app/utils/HTTPWrapper";
 import Popup from "@/app/authorisedSection/components/Popup";
 
@@ -25,21 +25,21 @@ export default function ExperiencePage() {
   // ----------------------------------------------------
   // GET EXPERIENCES
   // ----------------------------------------------------
-  const fetchExperiences = async () => {
+  const fetchExperiences = useCallback(async () => {
     setLoading(true);
     try {
       const res = await HTTPWrapper.get("/experience/get-experience");
       setData(res?.data || []);
-    } catch (err) {
+    } catch {
       showPopup("Failed to load experiences.");
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchExperiences();
-  }, []);
+  }, [fetchExperiences]);
 
   // ----------------------------------------------------
   // DELETE EXPERIENCE
