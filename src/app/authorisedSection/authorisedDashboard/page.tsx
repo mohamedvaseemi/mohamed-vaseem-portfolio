@@ -49,7 +49,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center
-                    bg-gradient-to-b from-gray-900 to-gray-800
+                    bg-[#020617] text-[#f0f4ff] selection:bg-[#14a800]/30
                     text-white px-6">
       {popup && <Popup message={popup} onClose={closePopup} />}
 
@@ -66,6 +66,7 @@ export default function Dashboard() {
           { name: "Learning", route: "/authorisedSection/addLearning" },
           { name: "Projects", route: "/authorisedSection/addProject" },
           { name: "Edit Section", route: "/authorisedSection/editSection" },
+          { name: "Feedbacks", route: "/authorisedSection/feedbacks" },
         ].map((item) => (
           <div
             key={item.name}

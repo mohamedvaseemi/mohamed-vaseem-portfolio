@@ -4,12 +4,14 @@ import HTTPWrapper from "../../utils/HTTPWrapper";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Popup from "../components/Popup";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const [popup, setPopup] = useState("");
@@ -63,7 +65,7 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 text-white px-6">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-[#020617] text-[#f0f4ff] selection:bg-[#14a800]/30 px-6">
       {popup && <Popup message={popup} onClose={closePopup} />}
       <div className="bg-gray-800/70 p-8 rounded-2xl shadow-lg w-full max-w-md">
         <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
@@ -76,13 +78,22 @@ export default function LoginPage() {
           className="w-full p-3 mb-4 rounded-md bg-gray-900 border border-gray-600 outline-none focus:ring-2 focus:ring-cyan-500"
         />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-3 mb-6 rounded-md bg-gray-900 border border-gray-600 outline-none focus:ring-2 focus:ring-cyan-500"
-        />
+        <div className="relative mb-6">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 pr-10 rounded-md bg-gray-900 border border-gray-600 outline-none focus:ring-2 focus:ring-cyan-500"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+          >
+            {showPassword ? <LuEyeOff size={20} /> : <LuEye size={20} />}
+          </button>
+        </div>
 
         <button
           onClick={handleRegister}

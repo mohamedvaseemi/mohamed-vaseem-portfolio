@@ -88,7 +88,7 @@ export default function AddEducationPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-blue-900 text-white p-8">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-[#020617] text-[#f0f4ff] selection:bg-[#14a800]/30 p-8">
       <Popup message={popup} onClose={closePopup} />
       <h1 className="text-4xl font-bold mb-8">Add Education Details</h1>
 

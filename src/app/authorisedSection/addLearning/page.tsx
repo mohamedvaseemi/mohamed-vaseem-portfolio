@@ -108,7 +108,7 @@ export default function AddLearningPage() {
   const PreviewIcon = getTechIcon(formData.name);
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-900 to-gray-800 text-white p-8">
+    <section className="min-h-screen flex flex-col justify-center items-center bg-[#020617] text-[#f0f4ff] selection:bg-[#14a800]/30 p-8">
       <Popup message={popup} onClose={closePopup} />
       <h2 className="text-4xl font-bold mb-8 text-cyan-400 drop-shadow-lg">
         Add Learning
@@ -149,20 +149,17 @@ export default function AddLearningPage() {
           <label className="block mb-2 text-gray-300 font-medium">
             Logo Image (Optional if icon found)
           </label>
-          <label htmlFor="file-upload" className="block mb-1 font-medium cursor-pointer flex justify-center">
-            <img
-              width="300px"
-              src="/upload.png"
-              alt="Upload"
-              className="rounded-lg shadow-md hover:opacity-80 transition"
-            />
-          </label>
           <input
             id="file-upload"
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="hidden"
+            className="w-full text-sm text-gray-400
+              file:mr-4 file:py-3 file:px-4
+              file:rounded-md file:border-0
+              file:text-sm file:font-semibold
+              file:bg-cyan-600 file:text-white
+              hover:file:bg-cyan-500 cursor-pointer"
           />
 
           {/* ✅ Image Preview */}

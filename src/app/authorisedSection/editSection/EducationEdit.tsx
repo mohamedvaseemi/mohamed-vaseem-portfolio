@@ -86,7 +86,7 @@ export default function EducationPage() {
   // ------------------------------------------------
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white p-8">
+    <section className="min-h-screen bg-[#020617] text-[#f0f4ff] selection:bg-[#14a800]/30 p-8">
       <Popup message={popup} onClose={closePopup} />
 
       <h2 className="text-4xl font-bold text-center mb-10">Education</h2>

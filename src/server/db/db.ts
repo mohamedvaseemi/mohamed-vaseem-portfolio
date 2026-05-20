@@ -10,10 +10,16 @@ let connectionPromise: Promise<MongoClient> | null = null;
 async function getClient(): Promise<MongoClient> {
     if (client) return client;
     if (!connectionPromise) {
-        connectionPromise = MongoClient.connect(MongoUri).then((c) => {
+        connectionPromise = MongoClient.connect(MongoUri, {
+            serverSelectionTimeoutMS: 2000,
+        }).then((c) => {
             client = c;
             console.log("✅ MongoDB connected");
             return c;
+        }).catch((err) => {
+            console.error("❌ MongoDB connection failed:", err.message);
+            connectionPromise = null; // Reset promise so we can try again
+            throw err;
         });
     }
     return connectionPromise;

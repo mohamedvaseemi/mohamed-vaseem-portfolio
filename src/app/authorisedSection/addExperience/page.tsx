@@ -90,7 +90,7 @@ export default function ExperiencePage() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-900 to-indigo-900 text-white">
+    <section className="min-h-screen flex flex-col justify-center items-center bg-[#020617] text-[#f0f4ff] selection:bg-[#14a800]/30">
       <Popup message={popup} onClose={closePopup} />
       <h2 className="text-4xl font-bold mb-8">Add Experience</h2>
 

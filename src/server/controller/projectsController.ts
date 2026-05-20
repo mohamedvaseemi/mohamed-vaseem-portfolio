@@ -6,7 +6,7 @@ export async function getProjectController() {
         const result = await getProjectDetails();
         return NextResponse.json(result, { status: result.status ? 200 : 400 });
     } catch (error: unknown) {
-        return NextResponse.json({ status: false, message: (error as Error).message }, { status: 500 });
+        return NextResponse.json({ status: false, message: (error as Error).message }, { status: 200 });
     }
 }
 

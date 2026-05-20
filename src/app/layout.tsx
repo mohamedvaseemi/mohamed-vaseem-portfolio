@@ -21,24 +21,27 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mohamed Vaseem | Full-Stack Developer & Upwork Freelancer",
+  title: "Mohamed Vaseem | Full-Stack Web Engineer",
   description:
-    "Top-rated Full-Stack Developer on Upwork specializing in React, Next.js, TypeScript & Node.js. 30+ projects delivered. 5-star rated. Available for freelance projects.",
+    "Full-Stack Web Engineer based in Mumbai with 3+ years of experience building scalable web applications using React, Next.js, TypeScript, Node.js, FastAPI, PostgreSQL & Redis. Available for full-time and freelance roles.",
   keywords: [
-    "Full-Stack Developer",
+    "Full-Stack Web Engineer",
     "React Developer",
     "Next.js Developer",
     "TypeScript",
     "Node.js",
-    "Upwork Freelancer",
+    "FastAPI",
+    "PostgreSQL",
+    "Redis",
     "Web Development",
+    "Mumbai Developer",
     "Mohamed Vaseem",
   ],
   authors: [{ name: "Mohamed Vaseem" }],
   openGraph: {
-    title: "Mohamed Vaseem | Full-Stack Developer",
+    title: "Mohamed Vaseem | Full-Stack Web Engineer",
     description:
-      "Top-rated Upwork Freelancer. React, Next.js, Node.js specialist.",
+      "Full-Stack Web Engineer specializing in React, Next.js, Node.js, FastAPI, PostgreSQL & Redis. Open to opportunities in Mumbai/Pune.",
     type: "website",
   },
 };

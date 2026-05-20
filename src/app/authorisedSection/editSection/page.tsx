@@ -70,7 +70,7 @@ export default function AdminSwitcherPage() {
   };
 
   return (
-    <section className="min-h-screen bg-gray-900 p-10 text-white flex flex-col items-center">
+    <section className="min-h-screen bg-[#020617] p-10 text-[#f0f4ff] selection:bg-[#14a800]/30 flex flex-col items-center">
 
       {/* Top Tabs */}
       <div className="flex gap-4 mb-8">

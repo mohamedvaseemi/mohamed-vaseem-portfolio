@@ -183,11 +183,17 @@ export default function ProjectsPage() {
 
         {/* IMAGE */}
         <div className="space-y-2">
+          <label className="text-sm font-semibold text-gray-300">Project Image</label>
           <input
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-            className="text-white"
+            className="w-full text-sm text-gray-400
+              file:mr-4 file:py-2 file:px-4
+              file:rounded-md file:border-0
+              file:text-sm file:font-semibold
+              file:bg-cyan-600 file:text-white
+              hover:file:bg-cyan-500 cursor-pointer"
           />
 
           {(base64Image || current.image) && (

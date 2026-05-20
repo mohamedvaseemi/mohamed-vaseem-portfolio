@@ -115,7 +115,7 @@ export default function AddProjectPage() {
   //   UI
   // --------------------------------------
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+    <section className="min-h-screen flex flex-col justify-center items-center bg-[#020617] text-[#f0f4ff] selection:bg-[#14a800]/30">
       <Popup message={popup} onClose={closePopup} />
 
       <h2 className="text-4xl font-bold mb-8">Add Project</h2>
@@ -167,24 +167,18 @@ export default function AddProjectPage() {
 
         {/* Project Image Upload */}
         <div>
-          <label
-            htmlFor="file-upload"
-            className="block mb-1 font-medium cursor-pointer flex justify-center"
-          >
-            <img
-              width="300px"
-              src="/upload.png"
-              alt="Upload"
-              className="rounded-lg shadow-md hover:opacity-80 transition"
-            />
-          </label>
-
+          <label className="block mb-2 text-gray-300 font-medium">Project Image</label>
           <input
             id="file-upload"
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-            className="hidden"
+            className="w-full text-sm text-gray-400
+              file:mr-4 file:py-3 file:px-4
+              file:rounded-md file:border-0
+              file:text-sm file:font-semibold
+              file:bg-cyan-600 file:text-white
+              hover:file:bg-cyan-500 cursor-pointer"
           />
 
           {/* Image Preview */}

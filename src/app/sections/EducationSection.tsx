@@ -2,6 +2,8 @@
 import { useRef, useEffect, useState } from "react";
 import { education as staticEducation } from "../../data/portfolio";
 
+import { LuGraduationCap, LuLaptop, LuBookOpen, LuSchool } from "react-icons/lu";
+
 interface EducationRecord {
   degree?: string;
   title?: string;
@@ -13,7 +15,7 @@ interface EducationRecord {
   description?: string;
 }
 
-const icons = ["🎓", "💻", "📚", "🏫"];
+const icons = [<LuGraduationCap key="grad" />, <LuLaptop key="laptop" />, <LuBookOpen key="book" />, <LuSchool key="school" />];
 
 export default function EducationSection() {
   const ref = useRef<HTMLDivElement>(null);

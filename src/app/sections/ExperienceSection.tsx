@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 import { experiences as staticExperiences } from "../../data/portfolio";
+import { LuCircleCheck } from "react-icons/lu";
 
 interface ExperienceRecord {
   role?: string;
@@ -101,7 +102,7 @@ export default function ExperienceSection() {
                       <ul className="flex flex-col gap-2">
                         {exp.highlights?.map((h: string, j: number) => (
                           <li key={j} className="flex items-start gap-2 text-sm text-[#8b9eb7]">
-                            <span className="mt-1 text-[#14a800] flex-shrink-0">✓</span>
+                            <span className="mt-1 text-[#14a800] flex-shrink-0"><LuCircleCheck size={16} /></span>
                             {h}
                           </li>
                         ))}

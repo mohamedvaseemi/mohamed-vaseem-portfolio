@@ -24,7 +24,8 @@ const projectColors = [
   "from-green-900/30 to-teal-900/20",
 ];
 
-const emoji = ["📊", "🛒", "🏨", "💼", "🚀", "🎯"];
+
+
 
 export default function ProjectsSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -104,23 +105,46 @@ export default function ProjectsSection() {
             {filtered.map((proj: ProjectRecord, i: number) => (
               <div
                 key={i}
-                className={`glass-card rounded-2xl overflow-hidden hover:border-[rgba(20,168,0,0.3)] hover:scale-[1.02] transition-all duration-300
+                className={`group glass-card rounded-2xl overflow-hidden hover:border-[rgba(20,168,0,0.3)] hover:scale-[1.02] transition-all duration-300
                            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                {/* Project Image / Gradient Placeholder */}
+                {/* Project Image */}
                 <div
-                  className={`relative h-44 bg-gradient-to-br ${projectColors[i % projectColors.length]} flex items-center justify-center overflow-hidden`}
+                  className={`relative h-44 overflow-hidden ${
+                    proj.image ? "bg-[#0a1628]" : `bg-gradient-to-br ${projectColors[i % projectColors.length]}`
+                  } flex items-center justify-center`}
                 >
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-                      backgroundSize: "20px 20px",
-                    }}
-                  />
-                  <div className="text-5xl opacity-20">{emoji[i % emoji.length]}</div>
+                  {proj.image ? (
+                    <img
+                      src={proj.image}
+                      alt={proj.title || proj.name || "Project screenshot"}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
+                        (e.currentTarget.parentElement as HTMLElement).classList.add(
+                          "bg-gradient-to-br",
+                          projectColors[i % projectColors.length]
+                        );
+                      }}
+                    />
+                  ) : (
+                    <>
+                      <div
+                        className="absolute inset-0 opacity-10"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+                          backgroundSize: "20px 20px",
+                        }}
+                      />
+                      {/* Placeholder code icon */}
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-white opacity-20">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                      </svg>
+                    </>
+                  )}
                   {proj.category && (
                     <span
                       className="absolute top-3 right-3 text-xs font-semibold px-3 py-1 rounded-full"
@@ -161,8 +185,11 @@ export default function ProjectsSection() {
                       className="inline-flex items-center gap-2 text-sm font-semibold text-[#14a800] hover:text-[#1dbd00] transition-colors"
                     >
                       View Project
+                      {/* External link icon */}
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
                       </svg>
                     </a>
                   )}
