@@ -8,7 +8,7 @@ interface ProjectRecord {
   desc?: string;
   description?: string;
   tech?: string | string[];
-  projectUrl?: string;
+  project_url?: string;
   link?: string;
   image?: string;
   category?: string;
@@ -177,14 +177,14 @@ export default function ProjectsSection() {
                   )}
 
                   {/* CTA */}
-                  {(proj.projectUrl || proj.link) && (
+                  {(proj.project_url || proj.link) && (
                     <a
-                      href={proj.projectUrl || proj.link}
+                      href={proj.project_url || proj.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#14a800] hover:text-[#1dbd00] transition-colors"
+                      className="inline-flex items-center gap-2 text-sm font-semibold bg-[#14a800]/10 text-[#14a800] hover:bg-[#14a800]/20 transition-all px-4 py-2 rounded-lg mt-2 w-fit"
                     >
-                      View Project
+                      Visit
                       {/* External link icon */}
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />

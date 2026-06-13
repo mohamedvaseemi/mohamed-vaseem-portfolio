@@ -3,7 +3,11 @@ import {
   SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiNodedotjs, 
   SiMongodb, SiTailwindcss, SiFramer, SiHtml5, SiCss, SiGit, 
   SiPostgresql, SiDocker, SiFirebase, SiExpress, SiRedux, SiUpwork,
-  SiVite, SiPython, SiCplusplus, SiC, SiGithub, SiFigma, SiVercel, SiLinux
+  SiVite, SiPython, SiCplusplus, SiC, SiGithub, SiFigma, SiVercel, SiLinux,
+  SiRust,
+  SiGo,
+  SiFastapi,
+  SiLaravel
 } from "react-icons/si";
 import { FaDatabase, FaServer, FaCode } from "react-icons/fa";
 
@@ -37,6 +41,10 @@ export const getTechIcon = (name: string): IconType | null => {
   if (n.includes("linux")) return SiLinux;
   if (n.includes("db") || n.includes("sql")) return FaDatabase;
   if (n.includes("server") || n.includes("api")) return FaServer;
+  if (n.includes("rust")) return SiRust;
+  if (n.includes("go") || n.includes("golang")) return SiGo;
+  if (n.includes("fastapi") || n.includes("FastAPI") || n.includes("fast")) return SiFastapi;
+  if (n.includes("laravel")) return SiLaravel;
   
   return FaCode;
 };
