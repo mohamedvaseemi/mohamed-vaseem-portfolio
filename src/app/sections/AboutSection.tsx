@@ -38,11 +38,12 @@ export default function AboutSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Fallback text if DB is empty
+// Fallback text if DB is empty
   const heading = aboutData?.heading || staticAboutData.heading;
   const bioText = (aboutData?.text || staticAboutData.bio) as string;
   const stats = aboutData?.stats || staticAboutData.stats;
   const availabilityNote = staticAboutData.availabilityNote;
+  const professionalSummary = staticAboutData.professionalSummary;
 
   return (
     <section
@@ -55,14 +56,13 @@ export default function AboutSection() {
         <p className="text-[#14a800] text-sm font-semibold uppercase tracking-widest mb-3">
           Who I Am
         </p>
-        <h2
-          className={`section-title text-3xl md:text-4xl font-bold text-white mb-8 transition-all duration-700 ${
+<h2
+          className={`section-title text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8 transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           {heading}
-        </h2>
-
+        </h2> 
         <div
           className={`transition-all duration-700 delay-100 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -72,18 +72,27 @@ export default function AboutSection() {
              <p className="text-[#8b9eb7] animate-pulse">Loading amazing details...</p>
           ) : (
               bioText.split("\n\n").map((para: string, i: number) => (
-                <p key={i} className="text-[#e2e8f0] text-lg md:text-xl leading-relaxed mb-6 font-light">
+                <p key={i} className="text-[#e2e8f0] text-base md:text-lg leading-relaxed mb-6 font-light">
                   {para}
                 </p>
               ))
           )}
 
-          {/* Tech stack preview - centered */}
+{/* Tech stack preview - centered */}
           <div className="mt-8 flex flex-wrap justify-center gap-2">
             {["React", "Next.js", "TypeScript", "Node.js", "FastAPI", "PostgreSQL", "Redis", "MongoDB"].map((tech) => (
               <span key={tech} className="tech-badge px-3 py-1.5 text-sm">{tech}</span>
             ))}
           </div>
+{/* Stats grid */}
+          {/* <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-3xl mx-auto">
+            {stats.map((s: { label: string; value: string }, i: number) => (
+              <div key={i} className="glass-card rounded-xl p-4 text-center">
+                <div className="text-2xl md:text-3xl font-bold text-[#14a800] font-heading">{s.value}</div>
+                <div className="text-xs text-[#8b9eb7] mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div> */}
 
           {/* Availability note - centered */}
           <div className="mt-8 inline-flex items-center gap-3 p-4 rounded-xl glass-card border border-[rgba(20,168,0,0.2)] text-left max-w-xl mx-auto">

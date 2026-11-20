@@ -7,17 +7,24 @@ export const heroData = {
   title: "Full-Stack Web Engineer",
   subtitle: "Building scalable, high-performance web applications — React, Next.js, Node.js, FastAPI & cloud-native backends.",
   availableTagline: "Open to Full-Time Opportunities · Mumbai / Pune",
+  location: "Mumbai, Maharashtra, India",
+  phone: "+91 9XXXXXXXXX",
   githubUrl: "https://github.com/vaseem-ismail-mohamed",
   linkedinUrl: "https://www.linkedin.com/in/mohamed-vaseem-ismail/",
   indeedUrl: "https://profile.indeed.com/?hl=en_IN&co=IN&from=gnav-homepage",
+  resumeUrl: "/resume.pdf",
   email: "vaseem.ismail.mohamed@gmail.com",
 };
 
 export const aboutData = {
   heading: "About Me",
-  bio: `I am a Full-Stack Web Engineer with 3+ years of experience building production-grade, scalable web applications. My core stack spans React, Next.js, TypeScript on the frontend and Node.js, FastAPI, PostgreSQL, and Redis on the backend.
+  bio: `Full-Stack Web Engineer based in Mumbai with 3+ years of experience building production-grade, scalable web applications. My core stack spans React, Next.js, TypeScript on the frontend and Node.js, FastAPI, PostgreSQL, and Redis on the backend.
 
-I have shipped 30+ projects across SaaS, e-commerce, and enterprise domains — consistently delivering clean architecture, measurable performance gains, and seamless user experiences. I thrive at the intersection of product thinking and engineering execution.`,
+I have shipped 30+ projects across SaaS, e-commerce, and enterprise domains — consistently delivering clean architecture, measurable performance gains, and seamless user experiences. I thrive at the intersection of product thinking and engineering execution.
+
+Currently open to full-time engineering roles in Mumbai / Pune (immediate joiner, hybrid or remote).`,
+  professionalSummary:
+    "Full-Stack Web Engineer · 3+ yrs · React, Next.js, TypeScript, Node.js, FastAPI, PostgreSQL, Redis · 30+ shipped projects · 100% delivery success · Immediate joiner, Mumbai/Pune.",
   availabilityNote:
     "Actively seeking full-time engineering roles in Mumbai or Pune. Immediate joiner. Open to hybrid and remote positions.",
   stats: [
@@ -108,7 +115,10 @@ export const education = [
 
 export const contactData = {
   email: "vaseem.ismail.mohamed@gmail.com",
-  githubUrl: "https://github.com/vaseem-ismail-mohamed",
-  linkedinUrl: "https://www.linkedin.com/in/mohamed-vaseem-ismail-89551132a/",
+  phone: "+91 7871915040",
+  location: "Tamil Nadu, India.",
+  githubUrl: "https://github.com/mohamedvaseemi",
+  linkedinUrl: "https://www.linkedin.com/in/mohamed-vaseem-ismail/",
   indeedUrl: "https://profile.indeed.com/",
+  resumeUrl: "https://drive.google.com/file/d/1M97jpYOdpio-BzyS9TYk59nqIQtCuroV/view?usp=sharing",
 };

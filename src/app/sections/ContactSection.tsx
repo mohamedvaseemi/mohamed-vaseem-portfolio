@@ -62,7 +62,11 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12 text-left">
           {/* Left Side: Contact Cards */}
           <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
-            <h3 className="text-2xl font-bold text-white mb-6">Connect with me</h3>
+            <h3 className="text-2xl font-bold text-white mb-2">Connect with me</h3>
+            <p className="text-sm text-[#8b9eb7] mb-6 flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+              {contactData.location} · Immediate joiner
+            </p>
             <div className="grid sm:grid-cols-2 gap-4">
               {/* LinkedIn Card */}
               <a
@@ -94,7 +98,34 @@ export default function ContactSection() {
                 <h4 className="text-white font-bold mb-1">GitHub</h4>
               </a>
 
-              {/* Indeed Card */}
+{/* Email Card */}
+              <a
+                href={`mailto:${contactData.email}`}
+                className="glass-card rounded-2xl p-6 group hover:border-[rgba(20,168,0,0.4)] transition-all duration-300 flex flex-col items-center text-center"
+              >
+                <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center mb-3 group-hover:bg-[#14a800]/10 transition-colors">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#14a800]">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <h4 className="text-white font-bold mb-1">Email</h4>
+                <p className="text-xs text-[#8b9eb7] break-all">{contactData.email}</p>
+              </a>
+
+              {/* Phone Card */}
+              <a
+                href={`tel:${contactData.phone.replace(/\s/g, "")}`}
+                className="glass-card rounded-2xl p-6 group hover:border-[rgba(20,168,0,0.4)] transition-all duration-300 flex flex-col items-center text-center"
+              >
+                <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center mb-3 group-hover:bg-[#14a800]/10 transition-colors">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#14a800]">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                  </svg>
+                </div>
+                <h4 className="text-white font-bold mb-1">Phone</h4>
+                <p className="text-xs text-[#8b9eb7]">{contactData.phone}</p>
+              </a>
               <a
                 href={contactData.indeedUrl}
                 target="_blank"

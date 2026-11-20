@@ -58,10 +58,10 @@ export default function ExperienceSection() {
           Experience
         </h2>
 
-        {/* Timeline */}
-        <div className="relative pl-14">
+{/* Timeline */}
+        <div className="relative pl-10 md:pl-14">
           {/* Vertical line */}
-          <div className="timeline-line" />
+          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#14a800] to-transparent" />
 
           <div className="flex flex-col gap-12">
             {loading ? (
@@ -75,8 +75,8 @@ export default function ExperienceSection() {
                     }`}
                     style={{ transitionDelay: `${i * 150}ms` }}
                   >
-                    {/* Timeline dot */}
-                    <div className="timeline-dot absolute -left-[42px] top-6" />
+{/* Timeline dot */}
+                    <div className="timeline-dot absolute -left-[26px] md:-left-[42px] top-6" />
 
                     <div className="glass-card rounded-2xl p-6 hover:border-[rgba(20,168,0,0.25)] transition-all duration-300">
                       {/* Header */}

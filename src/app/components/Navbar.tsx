@@ -116,7 +116,7 @@ export default function Navbar() {
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={() => setMenuOpen(false)}
           />
-          <div className="absolute top-0 right-0 bottom-0 w-72 bg-[#0a1628] border-l border-white/10 p-8 flex flex-col gap-3 pt-24">
+          <div className="absolute top-0 right-0 bottom-0 w-full sm:w-72 bg-[#0a1628] border-l border-white/10 p-8 flex flex-col gap-3 pt-24">
             {sections.map((sec) => (
               <button
                 key={sec}

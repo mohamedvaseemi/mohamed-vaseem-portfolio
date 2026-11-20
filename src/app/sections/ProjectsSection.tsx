@@ -80,8 +80,8 @@ export default function ProjectsSection() {
           Projects
         </h2>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-2 mb-10">
+{/* Filter Tabs */}
+        <div className="flex flex-wrap gap-2 mb-10 overflow-x-auto pb-2 -mx-1 px-1">
           {tabs.map((tab) => (
             <button
               key={tab}
