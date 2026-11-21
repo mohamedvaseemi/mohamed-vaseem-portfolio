@@ -5,14 +5,14 @@
 export const heroData = {
   name: "Mohamed Vaseem",
   title: "Full-Stack Web Engineer",
-  subtitle: "Building scalable, high-performance web applications — React, Next.js, Node.js, FastAPI & cloud-native backends.",
-  availableTagline: "Open to Full-Time Opportunities · Mumbai / Pune",
-  location: "Mumbai, Maharashtra, India",
-  phone: "+91 9XXXXXXXXX",
-  githubUrl: "https://github.com/vaseem-ismail-mohamed",
+  subtitle: "Building scalable, high-performance web applications — React, Next.js, Node.js, FastAPI, Spring & cloud-native backends.",
+  availableTagline: "Open to Full-Time Opportunities",
+  location: "Tamilnadu, India",
+  phone: "+91 7871915040",
+  githubUrl: "https://github.com/mohamedvaseemi",
   linkedinUrl: "https://www.linkedin.com/in/mohamed-vaseem-ismail/",
   indeedUrl: "https://profile.indeed.com/?hl=en_IN&co=IN&from=gnav-homepage",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "https://drive.google.com/file/d/1M97jpYOdpio-BzyS9TYk59nqIQtCuroV/view?usp=sharing",
   email: "vaseem.ismail.mohamed@gmail.com",
 };
 
@@ -119,6 +119,6 @@ export const contactData = {
   location: "Tamil Nadu, India.",
   githubUrl: "https://github.com/mohamedvaseemi",
   linkedinUrl: "https://www.linkedin.com/in/mohamed-vaseem-ismail/",
-  indeedUrl: "https://profile.indeed.com/",
+  indeedUrl: "https://profile.indeed.com/?hl=en_IN&co=IN&from=gnav-homepage",
   resumeUrl: "https://drive.google.com/file/d/1M97jpYOdpio-BzyS9TYk59nqIQtCuroV/view?usp=sharing",
 };
