@@ -56,7 +56,7 @@ export default function ContactSection() {
         <p className={`text-[#8b9eb7] text-lg max-w-2xl mx-auto mb-16 transition-all duration-700 delay-100 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          Open to full-time engineering roles in Mumbai & Pune, as well as freelance engagements. If you have an exciting opportunity or a project that needs professional execution, I&apos;d love to connect.
+          Open to full-time software developer roles in Chennai, Mumbai and Bengaluru, as well as freelance engagements. If you have an exciting opportunity or a project that needs professional execution, I&apos;d love to connect.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 text-left">

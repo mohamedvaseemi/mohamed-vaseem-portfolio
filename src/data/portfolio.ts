@@ -26,7 +26,7 @@ Currently open to full-time engineering roles in Mumbai / Pune (immediate joiner
   professionalSummary:
     "Full-Stack Web Engineer · 3+ yrs · React, Next.js, TypeScript, Node.js, FastAPI, PostgreSQL, Redis · 30+ shipped projects · 100% delivery success · Immediate joiner, Mumbai/Pune.",
   availabilityNote:
-    "Actively seeking full-time engineering roles in Mumbai or Pune. Immediate joiner. Open to hybrid and remote positions.",
+    "Actively seeking full-time software developer roles in Chennai, Mumbai and Bengaluru. Immediate joiner. Open to onsite, hybrid and remote positions.",
   stats: [
     { label: "Projects Delivered", value: "30+" },
     { label: "Client Rating", value: "5.0/5" },
